@@ -1,0 +1,35 @@
+.header{
+    height: 40px;
+    padding: 8px 12px;
+    background: lightsteelblue;
+    font-size: 18px;
+} 
+
+.body-container{
+    padding: 24px;;
+}
+
+.body-container label{
+    display: block;
+    margin-bottom: 15px;
+}
+
+.body-container label span{
+    display: inline-block;
+    width: 150px;
+}
+
+.body-container label .formControl{
+    width: 260px;
+    height: 24px;
+    border: 1px solid #000000;
+}
+
+.button-container{
+    text-align: center;
+    padding: 12px;
+}
+
+.button-container button{
+    margin: 8px;
+}

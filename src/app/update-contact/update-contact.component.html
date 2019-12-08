@@ -1,0 +1,39 @@
+<div class="header col-12">
+  {{title}}
+</div>
+<div class="body-container col-12">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <label>
+      <span> First Name: </span>
+      <input type="text" class="formControl" formControlName="firstName" required>
+    </label>
+  
+    <label>
+      <span>Last Name: </span>
+      <input type="text" class="formControl" formControlName="lastName" required>
+    </label>
+  
+    <label>
+      <span>Email:</span>
+      <input type="email" class="formControl" formControlName="email" required>
+    </label>
+  
+    <label>
+      <span>Phone Number:</span>
+      <input type="tel" class="formControl" formControlName="phoneNumber" required>
+    </label>
+  
+    <label>
+      <span>Status:</span>
+      <mat-select class="formControl" [(value)]="selectedStatus" formControlName="status">
+        <mat-option *ngFor="let status of statusList" [value]="status.value">{{status.value}}</mat-option>
+      </mat-select>
+    </label>
+  
+    <div class="button-container">
+      <button type="submit" class="formControl btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+      <button type="reset" class="formControl btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+  
+  </form>
+</div>

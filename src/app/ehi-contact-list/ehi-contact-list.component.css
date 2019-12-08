@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+}
+
+.header-container{
+    height: 54px;
+    background: gray;
+    color: #FFF;
+    padding: 8px;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.page-title{
+    line-height: 32px;
+}
+
+.add-op-container {
+    text-align: right;
+}
+
+.table-container{
+    margin: 12px;
+}
+
+.mat-header-cell{
+    font-size: 16px;
+    font-weight: bold;
+}

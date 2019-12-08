@@ -1,0 +1,20 @@
+.header{
+    height: 40px;
+    padding: 8px 12px;
+    background: lightsteelblue;
+    line-height: 24px;
+    font-size: 18px;
+} 
+
+.body-container{
+    padding: 24px;;
+}
+
+.button-container{
+    text-align: center;
+    padding: 12px;
+}
+
+.button-container button{
+    margin: 8px;
+}
