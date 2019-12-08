@@ -31,9 +31,8 @@
     </label>
   
     <div class="button-container">
-      <button type="submit" class="formControl btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+      <button type="submit" class="formControl btn btn-primary" [disabled]="!contactForm.valid && contactForm.status === 'INVALID' ">Submit</button>
       <button type="reset" class="formControl btn btn-secondary" (click)="cancel()">Cancel</button>
     </div>
-  
   </form>
 </div>

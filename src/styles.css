@@ -6,3 +6,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .cdk-global-overlay-wrapper .cdk-overlay-pane .mat-dialog-container{
     padding: 0;
 }
+
+.button-container{
+    text-align: center;
+    padding: 12px;
+}
+
+.button-container button{
+    margin: 8px;
+}
+
+.body-container{
+    padding: 24px;;
+}
+
+.header{
+    height: 40px;
+    padding: 8px 12px;
+    background: lightsteelblue;
+    font-size: 18px;
+}

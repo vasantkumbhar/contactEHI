@@ -1,36 +1,20 @@
 {
   "contact": [
     {
-      "id": 1,
-      "firstName": "Avinash",
-      "lastName": "Kamat",
-      "email": "avinash.ka",
-      "phoneNumber": "9988776655",
-      "status": "Active"
-    },
-    {
-      "id": 2,
-      "firstName": "Akhil",
-      "lastName": "RJ",
-      "email": "akhil.rj@gmail.com",
-      "phoneNumber": "9998887766",
-      "status": "Active"
+      "firstName": "Rajdeep",
+      "lastName": "Biswas",
+      "email": "rbiswas2@gmail.com",
+      "phoneNumber": "8855998877",
+      "status": "Active",
+      "id": 9
     },
     {
       "firstName": "Vasant",
-      "lastName": "k",
-      "email": "vk@yahoo.com",
-      "phoneNumber": "u763t76476`",
-      "status": "",
-      "id": 3
-    },
-    {
-      "firstName": "r",
-      "lastName": "b",
-      "email": "r.b@yahoo.com",
-      "phoneNumber": "123",
+      "lastName": "Kumbhar",
+      "email": "vasant_kumbhar@yahoo.com",
+      "phoneNumber": "7755900613",
       "status": "Active",
-      "id": 4
+      "id": 10
     }
   ]
 }

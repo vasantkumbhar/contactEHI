@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ContactService } from '../ehi-contact-list/contact.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,20 +15,19 @@ export class ConfirmationModelComponent implements OnInit {
 
   constructor( public dialogRef: MatDialogRef<ConfirmationModelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private contactService: ContactService) { }
+    private contactService: ContactService,
+    private toastr: ToastrService) { }
 
-  ngOnInit() {
-    console.log('data: ', this.data);
-  }
+  ngOnInit() {}
 
-  delete(){
+  delete() {
     this.contactService.deleteContact(this.data).subscribe(data => {
-      console.log(data);
+      this.toastr.success('Record deleted successfully!');
       this.dialogRef.close(this.data);
     });
   }
 
-  cancel(){
+  cancel() {
     this.dialogRef.close();
   }
 }

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { ConfirmationModelComponent } from './confirmation-model/confirmation-model.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatDialogModule,
     MatSelectModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   entryComponents: [UpdateContactComponent, ConfirmationModelComponent],

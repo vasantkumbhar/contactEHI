@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
+import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { ContactService } from './contact.service';
-import { IContact, Contact } from '../shared/model/data-model';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { IContact } from '../shared/model/data-model';
+import {MatDialog} from '@angular/material/dialog';
 import {UpdateContactComponent} from '../update-contact/update-contact.component'
 import { ConfirmationModelComponent } from '../confirmation-model/confirmation-model.component';
 
@@ -22,35 +21,26 @@ export class EhiContactListComponent implements OnInit {
   constructor(
     private contactService: ContactService,
     private matDialog: MatDialog,
-    private changeDetectorRefs: ChangeDetectorRef
-
-  ){
-
-  }
+  ) {}
 
   ngOnInit() {
-    this.contactService.getContactList().subscribe((data: Contact[]) => {
-      this.dataTable = data.slice();
+    this.contactService.getContactList().subscribe((data: IContact[]) => {
+      this.dataTable = data;
       this.dataSource = new MatTableDataSource<IContact>(this.dataTable);
     });
   }
 
-  addContact(data, type){
-    console.log(data);
+  addContact(type: string, data?: IContact) {
     const dialogRef = this.matDialog.open(UpdateContactComponent, {
-      
       width: '500px',
       data: {data, type},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ', result);
-
+    dialogRef.afterClosed().subscribe((result: IContact) => {
       if (result) {
         if(type === 'add'){
           this.dataTable.push(result);
-        }
-        else{
+        } else {
           const idx = this.dataTable.map(e => e.id).indexOf(result.id);
           this.dataTable.splice(idx, 1);
           this.dataTable.splice(idx, 0, result);
@@ -61,23 +51,15 @@ export class EhiContactListComponent implements OnInit {
   }
 
   deleteContact(id: number){
-    console.log(id);
-
     const dialogRef = this.matDialog.open(ConfirmationModelComponent, {
-      width: '300px',
+      width: '350px',
       data: id,
     });
 
-    // this.contactService.deleteContact(id).subscribe(data => {
-    //   console.log(data);
-    //   this.changeDetectorRefs.detectChanges();
-    // });
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ', result);
-      console.log(this.dataTable.map(e => e.id).indexOf(result));
       if (result) {
-        this.dataTable.splice(this.dataTable.map(e => e.id).indexOf(result.id), 1);
+        const idx = this.dataTable.map(e => e.id).indexOf(id);
+        this.dataTable.splice(idx, 1);
         this.dataSource = new MatTableDataSource<IContact>(this.dataTable);
       }
     });
